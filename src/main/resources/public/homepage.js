@@ -15,7 +15,8 @@ const createEntry = (e) => {
     fetch(`${URL}/entries`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization' : localStorage.getItem("token")
         },
         body: JSON.stringify(entry)
     }).then((result) => {
