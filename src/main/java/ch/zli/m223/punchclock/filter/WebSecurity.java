@@ -36,6 +36,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, GET_HOMEPAGE).permitAll()
                 .antMatchers(HttpMethod.GET, GET_HOMEPAGE_JS).permitAll()
                 .antMatchers(HttpMethod.GET, GET_ENTRY).permitAll()
+                .antMatchers(HttpMethod.DELETE, GET_USERS).permitAll()
                 .antMatchers(HttpMethod.POST, GET_LOGIN_URL).permitAll()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
                 .anyRequest().authenticated()

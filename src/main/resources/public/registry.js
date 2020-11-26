@@ -24,4 +24,7 @@ const signup = (e) =>{
             window.location.replace(`${URL}/index.html`);
         }
     });
+
+
 }
+

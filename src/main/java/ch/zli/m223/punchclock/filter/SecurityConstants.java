@@ -14,6 +14,7 @@ public class SecurityConstants {
     public static final String GET_HOMEPAGE_JS = "/homepage.js";
     public static final String GET_REGISTRY = "/registry.html";
     public static final String GET_REGISTRY_JS = "/registry.js";
+    public static final String GET_USERS = "/users/";
 
 
 

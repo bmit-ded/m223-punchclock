@@ -1,8 +1,18 @@
+<script>    function deleteUser(id){
+    fetch(`${URL}/users/` + id, {
+        method: 'DELETE',
+    }).then((result) => {
+        console.log(result);
+        if(result.status === 200){
+            window.location.replace(`${URL}/index.html`);
+        }
+    });
+}</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE html>
+    <meta charset="UTF-8"
+    <title>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -14,12 +24,21 @@
             <script src="registry.js" type="application/javascript"></script>
         </head>
 <body>
+<h1>SIGN UP</h1>
 <form id="regForm">
     <input type="text" id="username" name="username" placeholder="username">
     <br>
     <input type="password" id="password" name="password" placeholder="password">
     <input type="submit" id="submit" value="Sign up">
 </form>
+<br>
+<h1>DELETE USER</h1>
+<input type="text" id="userId" name="userId" placeholder="UserId">
+<input type="button" value="delete" onclick="deleteUser(document.getElementById('userId').value)"/>
+<br>
+<h1>CHANGE NAME</h1>
+<input type="text" name="newname" placeholder="new name"/>
+<input type="button" value="delete" onclick="(document.getElementById('companyId').value)"/>
 </body>
 </html></title>
 </head>
