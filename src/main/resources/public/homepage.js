@@ -63,8 +63,28 @@ document.addEventListener('DOMContentLoaded', function(){
     indexEntries();
 });
 
-document.addEventListener2('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function(){
     const createEntryForm = document.querySelector('#deleteEntryForm');
     createEntryForm.addEventListener('submit', deleteEntry);
     indexEntries();
 });
+
+const deleteEntry = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const entry = {};
+    entry['id'] = formData.get('id');
+
+    fetch(`${URL}/entries`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(entry)
+    }).then((result) => {
+        result.json().then((entry) => {
+            entries.delete(entry);
+            renderEntries();
+        });
+    });
+};

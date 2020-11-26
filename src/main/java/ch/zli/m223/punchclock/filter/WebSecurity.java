@@ -39,6 +39,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, GET_USERS).permitAll()
                 .antMatchers(HttpMethod.POST, GET_LOGIN_URL).permitAll()
                 .antMatchers(HttpMethod.GET, "/").permitAll()
+                .antMatchers(HttpMethod.GET, "/h2-console/**").permitAll()
+                .antMatchers(HttpMethod.DELETE, SecurityConstants.GET_USERS+"/*").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))

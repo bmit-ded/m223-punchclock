@@ -1,17 +1,7 @@
-<script>    function deleteUser(id){
-    fetch(`${URL}/users/` + id, {
-        method: 'DELETE',
-    }).then((result) => {
-        console.log(result);
-        if(result.status === 200){
-            window.location.replace(`${URL}/index.html`);
-        }
-    });
-}</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"
+    <meta charset="UTF-8">
     <title>
         <html lang="en">
         <head>
@@ -33,8 +23,10 @@
 </form>
 <br>
 <h1>DELETE USER</h1>
+<form id="delForm">
 <input type="text" id="userId" name="userId" placeholder="UserId">
-<input type="button" value="delete" onclick="deleteUser(document.getElementById('userId').value)"/>
+<input type="button" value="delete">
+</form>
 <br>
 <h1>CHANGE NAME</h1>
 <input type="text" name="newname" placeholder="new name"/>

@@ -25,6 +25,30 @@ const signup = (e) =>{
         }
     });
 
+    document.addEventListener('DOMContentLoaded', function(){
+        const createLoginForm = document.querySelector('#delForm');
+        createLoginForm.addEventListener('submit', delete1);
+    });
+
+    const delete1 = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const delete1 = {};
+        delete1['id'] = formData.get('id');
+
+        fetch(`${URL}/users/`, {
+            method: 'delete',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(delete1)
+        }).then((result) => {
+            console.log(result);
+            if (result == true) {
+                window.location.replace(`${URL}/index.html`);
+            }
+        });
+    }
 
 }
 
