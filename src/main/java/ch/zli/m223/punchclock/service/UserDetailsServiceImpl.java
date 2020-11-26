@@ -1,4 +1,4 @@
-package ch.zli.m223.punchclock.domain;
+package ch.zli.m223.punchclock.service;
 
 import ch.zli.m223.punchclock.domain.ApplicationUser;
 import ch.zli.m223.punchclock.repository.ApplicationUserRepository;
