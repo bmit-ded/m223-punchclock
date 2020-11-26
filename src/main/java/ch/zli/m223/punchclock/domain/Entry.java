@@ -1,11 +1,14 @@
 package ch.zli.m223.punchclock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
+
 import javax.persistence.*;
+import javax.swing.text.html.HTML;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,6 +27,16 @@ public class Entry {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Column(nullable = false)
     private LocalDateTime checkOut;
+
+    @ManyToOne
+    @JoinColumn(name = "applicationuser_id")
+    @JsonIgnore
+    private ApplicationUser applicationUser;
+
+    @ManyToOne
+    @JoinColumn(name = "tag_id")
+    @JsonIgnore
+    private Tag tag;
 
     public Long getId() {
         return id;
@@ -47,5 +60,21 @@ public class Entry {
 
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
+    }
+
+    public ApplicationUser getApplicationUser() {
+        return applicationUser;
+    }
+
+    public void setApplicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
     }
 }

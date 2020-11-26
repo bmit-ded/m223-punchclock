@@ -61,3 +61,9 @@ document.addEventListener('DOMContentLoaded', function(){
     createEntryForm.addEventListener('submit', createEntry);
     indexEntries();
 });
+
+document.addEventListener2('DOMContentLoaded', function(){
+    const createEntryForm = document.querySelector('#deleteEntryForm');
+    createEntryForm.addEventListener('submit', deleteEntry);
+    indexEntries();
+});
